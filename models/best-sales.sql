@@ -2,10 +2,8 @@
 WITH produtos AS (
     SELECT
         id,
-        titulo,
-        memoria,
-        oled,
-        lite
+        titulo
+
     FROM {{ ref('tabela-produto') }} -- Fonte de dados: tabela "tabela-produto"
 ),
 preco AS (
@@ -26,9 +24,6 @@ produtos_filtrados AS (
     SELECT
         produtos.id,
         produtos.titulo,
-        produtos.memoria,
-        produtos.oled,
-        produtos.lite,
         preco.preco_promo,
         detalhes.origem
     FROM produtos
