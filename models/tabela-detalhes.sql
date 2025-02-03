@@ -9,5 +9,5 @@ SELECT
     oled,            -- Seleciona a coluna 'oled'
     lite             -- Seleciona a coluna 'lite'
 
-FROM {{ source("nintendo_projeto_dev", "nintendo-bigtable") }} -- Fonte de dados: tabela "nintendo-bigtable" no projeto "nintendo_projeto_dev"
+FROM {{ source("nintendo_projeto_prd", "nintendo-bigtable") }} -- Fonte de dados: tabela "nintendo-bigtable" no projeto "nintendo_projeto_prd"
 ORDER BY id        -- Ordena os resultados pela coluna 'id'
