@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: nintendo_projeto_prd
+  - name: nintendo_projeto_dev
     database: nintendo_databricks
     schema: dev
     tables:
