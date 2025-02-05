@@ -4,7 +4,7 @@
         pre_hook=[
             "{{ revoke_usage_schema() }}",
             "{{ revoke_select_tabela_detalhes() }}"
-        ]
+        ],
         post_hook=[
             "{{ grant_usage_schema() }}",
             "{{ grant_select_tabela_detalhes() }}"
@@ -21,5 +21,5 @@ SELECT
     oled,            -- Seleciona a coluna 'oled'
     lite             -- Seleciona a coluna 'lite'
 
-FROM {{ source("nintendo_projeto_dev", "nintendo-bigtable") }} -- Fonte de dados: tabela "nintendo-bigtable" no projeto "nintendo_projeto_dev"
+FROM {{ source("nintendo_projeto", "nintendo-bigtable") }} -- Fonte de dados: tabela "nintendo-bigtable" no projeto "nintendo_projeto"
 ORDER BY id        -- Ordena os resultados pela coluna 'id'

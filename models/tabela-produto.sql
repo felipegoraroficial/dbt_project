@@ -5,7 +5,7 @@
 
             "{{ revoke_usage_schema() }}",
             "{{ revoke_select_tabela_produto() }}"
-        ]
+        ],
         post_hook=[
 
             "{{ grant_usage_schema() }}",
@@ -18,5 +18,5 @@ SELECT
     id,    -- Seleciona a coluna 'id'
     titulo -- Seleciona a coluna 'titulo'
 
-FROM {{ source("nintendo_projeto_dev", "nintendo-bigtable") }} -- Fonte de dados: tabela "nintendo-bigtable" no projeto "nintendo_projeto_dev"
+FROM {{ source("nintendo_projeto", "nintendo-bigtable") }} -- Fonte de dados: tabela "nintendo-bigtable" no projeto "nintendo_projeto"
 ORDER BY id        -- Ordena os resultados pela coluna 'id'
