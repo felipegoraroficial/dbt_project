@@ -1,8 +1,16 @@
+{{
+    config(
+        materialized = 'table',
+        post_hook=[
+            "{{ grant_usage_schema() }}",
+            "{{ grant_select_tabela_detalhes() }}"
+        ]
+    )
+}}
 
 SELECT 
     id,              -- Seleciona a coluna 'id'
     link,            -- Seleciona a coluna 'link'
-    file_date,       -- Seleciona a coluna 'file_date'
     status,          -- Seleciona a coluna 'status'
     origem,          -- Seleciona a coluna 'origem'
     memoria,         -- Seleciona a coluna 'memoria'
