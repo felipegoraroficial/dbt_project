@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: nintendo_projeto
+    database: nintendo_databricks
+    schema: prd
+    tables:
+      - name: nintendo-bigtable
