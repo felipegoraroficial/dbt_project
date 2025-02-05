@@ -20,9 +20,6 @@ SELECT
     parcelado,       -- Seleciona a coluna 'parcelado'
     file_date        -- Seleciona a coluna 'file_date'
 
-<<<<<<< HEAD
-FROM {{ source("nintendo_projeto_prd", "nintendo-bigtable") }} -- Fonte de dados: tabela "nintendo-bigtable" no projeto "nintendo_projeto_prd"
-=======
+
 FROM {{ source("nintendo_projeto", "nintendo-bigtable") }} -- Fonte de dados: tabela "nintendo-bigtable" no projeto "nintendo_projeto"
->>>>>>> c85854ccd91e0d4bfd04d08509749845fd034528
 ORDER BY preco_promo ASC -- Ordena os resultados pela coluna 'preco_promo' em ordem ascendente
