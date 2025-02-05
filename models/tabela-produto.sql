@@ -5,7 +5,7 @@
 
             "{{ revoke_usage_schema() }}",
             "{{ revoke_select_tabela_produto() }}"
-        ]
+        ],
         post_hook=[
 
             "{{ grant_usage_schema() }}",
