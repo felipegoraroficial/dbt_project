@@ -1,3 +1,13 @@
+{{
+    config(
+        materialized = 'view',
+        post_hook=[
+            "{{ grant_usage_schema() }}",
+            "{{ grant_select_tabela_produto() }}"
+        ]
+    )
+}}
+
 -- Etapa 1: Criação das CTEs (Common Table Expressions)
 WITH produtos AS (
     SELECT

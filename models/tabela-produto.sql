@@ -1,3 +1,14 @@
+{{
+    config(
+        materialized = 'table',
+        post_hook=[
+
+            "{{ grant_usage_schema() }}",
+            "{{ grant_select_tabela_produto() }}"
+        ]
+    )
+}}
+
 SELECT 
     id,    -- Seleciona a coluna 'id'
     titulo -- Seleciona a coluna 'titulo'
