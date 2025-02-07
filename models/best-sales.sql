@@ -1,14 +1,6 @@
 {{
     config(
         materialized = 'view',
-        pre_hook=[
-            "{{ revoke_usage_schema() }}",
-            "{{ revoke_select_best_sales() }}"
-        ],
-        post_hook=[
-            "{{ grant_usage_schema() }}",
-            "{{ grant_select_best_sales() }}"
-        ]
     )
 }}
 
