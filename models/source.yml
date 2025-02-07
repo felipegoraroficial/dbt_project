@@ -3,6 +3,10 @@ version: 2
 sources:
   - name: nintendo_projeto
     database: nintendo_databricks
+<<<<<<< HEAD
     schema: dev
+=======
+    schema: prd
+>>>>>>> 8563f9601dded98176f541b465fd5eee0ac8b7e2
     tables:
       - name: nintendo-bigtable

@@ -1,16 +1,6 @@
 {{
     config(
         materialized = 'table',
-        pre_hook=[
-
-            "{{ revoke_usage_schema() }}",
-            "{{ revoke_select_tabela_produto() }}"
-        ],
-        post_hook=[
-
-            "{{ grant_usage_schema() }}",
-            "{{ grant_select_tabela_produto() }}"
-        ]
     )
 }}
 
