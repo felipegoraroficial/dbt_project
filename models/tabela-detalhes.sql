@@ -5,7 +5,7 @@
 }}
 
 SELECT 
-    id,              -- Seleciona a coluna 'id'
+    codigo as id,              -- Seleciona a coluna 'id'
     link,            -- Seleciona a coluna 'link'
     status,          -- Seleciona a coluna 'status'
     origem,          -- Seleciona a coluna 'origem'
@@ -15,4 +15,5 @@ SELECT
 
 
 FROM {{ source("nintendo_projeto", "nintendo-bigtable") }} -- Fonte de dados: tabela "nintendo-bigtable" no projeto "nintendo_projeto"
+WHERE status = "ativo"
 ORDER BY id        -- Ordena os resultados pela coluna 'id'

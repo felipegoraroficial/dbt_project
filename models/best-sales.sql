@@ -38,31 +38,16 @@ produtos_filtrados AS (
     WHERE detalhes.origem IN ('mercadolivre', 'magalu') -- Filtra as origens "mercadolivre" e "magalu"
 ),
 
--- Etapa 3: Seleção do menor preço para "mercadolivre"
-menor_preco_mercadolivre AS (
+-- Etapa 3: Obtenção do menor preço por origem
+menores_precos AS (
     SELECT
-        first_value(id) OVER (partition by origem ORDER BY preco_promo) AS id,
-        first_value(preco_promo) OVER (partition by origem ORDER BY preco_promo) AS menor_preco,
-        'mercadolivre' AS origem
+        id,
+        preco_promo AS menor_preco,
+        origem
     FROM produtos_filtrados
-    WHERE origem = 'mercadolivre'
-    ORDER BY preco_promo
-    LIMIT 1
-),
-
--- Etapa 4: Seleção do menor preço para "magalu"
-menor_preco_magalu AS (
-    SELECT
-        first_value(id) OVER (partition by origem ORDER BY preco_promo) AS id,
-        first_value(preco_promo) OVER (partition by origem ORDER BY preco_promo) AS menor_preco,
-        'magalu' AS origem
-    FROM produtos_filtrados
-    WHERE origem = 'magalu'
-    ORDER BY preco_promo
-    LIMIT 1
+    WHERE origem IN ('mercadolivre', 'magalu')
+    QUALIFY ROW_NUMBER() OVER (PARTITION BY origem ORDER BY preco_promo ASC) = 1
 )
 
 -- Etapa 5: União dos resultados
-SELECT * FROM menor_preco_mercadolivre
-UNION ALL
-SELECT * FROM menor_preco_magalu
+SELECT * FROM menores_precos

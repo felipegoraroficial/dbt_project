@@ -5,7 +5,7 @@
 }}
 
 SELECT 
-    id,              -- Seleciona a coluna 'id'
+    codigo as id,              -- Seleciona a coluna 'id'
     moeda,           -- Seleciona a coluna 'moeda'
     condition_promo, -- Seleciona a coluna 'condition_promo'
     preco_promo,     -- Seleciona a coluna 'preco_promo'
